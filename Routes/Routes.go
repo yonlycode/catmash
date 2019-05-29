@@ -6,6 +6,6 @@ import (
 
 //SetRoutes (application) => set all routes
 func SetRoutes(a *echo.Echo) {
-	a.Static("/", "./Client/build")
+	a.Static("/", "./client/build")
 	a.Static("/images", "./Img")
 }
