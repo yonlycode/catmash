@@ -1,6 +1,6 @@
 package controllers
 
-import daos "catmash/Daos"
+import "catmash/daos"
 
 // Dao of the db server
 var Dao *daos.DAO

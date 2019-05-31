@@ -1,10 +1,10 @@
 package main
 
 import (
-	controllers "catmash/Controllers"
-	daos "catmash/Daos"
-	routes "catmash/Routes"
-	utils "catmash/Utils"
+	"catmash/controllers"
+	"catmash/daos"
+	"catmash/routes"
+	"catmash/utils"
 	"os"
 
 	"github.com/labstack/echo"
@@ -54,7 +54,7 @@ func main() {
 		// Http server
 		go func(c *echo.Echo) {
 			// https redirection
-			e.Use(middleware.HTTPSRedirect())
+			e.Pre(middleware.HTTPSRedirect())
 			e.Logger.Fatal(e.Start(os.Getenv("HTTP")))
 		}(e)
 
