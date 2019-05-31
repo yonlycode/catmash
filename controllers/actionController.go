@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"catmash/models"
+	"catmash/utils"
 	"io"
 	"net/http"
 	"os"
@@ -75,4 +76,29 @@ func VoteUp(c echo.Context) error {
 	}
 	//return success
 	return c.String(200, "Voted")
+}
+
+/*GetMatch return 2 cats for a match*/
+func GetMatch(c echo.Context) error {
+
+	//get cats array
+	cats, err := Dao.FindAllCats()
+	if err != nil {
+		return c.String(500, err.Error())
+	}
+
+	//get length of cat array
+	max := len(cats)
+
+	//generate 2 index range between 0 and max
+	i1 := utils.GetRandomNumber(0, max)
+	i2 := utils.GetRandomNumber(0, max)
+
+	//push cat item to @result array
+	var result []models.Cat
+	result = append(result, cats[i1])
+	result = append(result, cats[i2])
+
+	//return 2 random cats
+	return c.JSON(200, result)
 }
