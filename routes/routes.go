@@ -20,10 +20,12 @@ func SetRoutes(a *echo.Echo) {
 	a.Static("/", "./client/build")
 
 	/* uploaded images will be here  */
-	a.Static("/upload", "./upload/img")
+	a.Static("/img", "./upload/img")
 
 	/* dispatch group and bind them to controller */
-	SyncUserAPI(a.Group("/user"))
-	ImgR = a.Group("/image")
-	UserR = a.Group("/cat")
+	SyncUserAPI(a.Group("/api/user"))
+	SyncCatAPI(a.Group("/api/cat"))
+
+	SyncActionRoutes(a)
+
 }
