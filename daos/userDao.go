@@ -39,7 +39,7 @@ func (m *DAO) InsertUser(user models.User) error {
 
 /*DeleteUser delete selected user, return err if can't  */
 func (m *DAO) DeleteUser(id string) error {
-	err := db.C(userCollection).RemoveId(id)
+	err := db.C(userCollection).RemoveId(bson.ObjectIdHex(id))
 	return err
 }
 

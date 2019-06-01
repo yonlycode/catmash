@@ -8,7 +8,7 @@ import (
 
 /*Cat is db representation of a cat */
 type Cat struct {
-	ID      bson.ObjectId `bson:"_id,omitempty" json:"_id,omitempty" binding:"required"`
+	ID      bson.ObjectId `bson:"_id" json:"_id" binding:"required"`
 	Name    string        `bson:"name" json:"name"`
 	Img     string        `bson:"img" json:"img"`
 	Vote    int           `bson:"vote" json:"vote"`

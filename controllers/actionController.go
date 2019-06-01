@@ -90,9 +90,20 @@ func GetMatchEndPoint(c echo.Context) error {
 	//get length of cat array
 	max := len(cats)
 
+	var (
+		//init 2 index
+		i1 int
+		i2 int
+	)
+
 	//generate 2 index range between 0 and max
-	i1 := utils.GetRandomNumber(0, max)
-	i2 := utils.GetRandomNumber(0, max)
+	i1 = utils.GetRandomNumber(0, max)
+	i2 = utils.GetRandomNumber(0, max)
+
+	//if the 2 index are same re run randomiser
+	if i1 == i2 {
+		i2 = utils.GetRandomNumber(0, max)
+	}
 
 	//push cat item to @result array
 	var result []models.Cat

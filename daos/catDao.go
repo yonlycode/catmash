@@ -39,7 +39,7 @@ func (m *DAO) InsertCat(cat models.Cat) error {
 
 /*DeleteCat delete selected cat, return err if can't */
 func (m *DAO) DeleteCat(id string) error {
-	err := db.C(catCollection).RemoveId(id)
+	err := db.C(catCollection).RemoveId(bson.ObjectIdHex(id))
 	return err
 }
 

@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"catmash/models"
+	"fmt"
 	"time"
 
 	"github.com/labstack/echo"
@@ -75,6 +76,7 @@ func UpdateCatEndPoint(c echo.Context) error {
 func DeleteCatEndPoint(c echo.Context) error {
 	//delete cat
 	err := Dao.DeleteCat(c.Param("id"))
+	fmt.Println(c.Param("id"))
 	if err != nil {
 		return c.String(500, err.Error())
 	}

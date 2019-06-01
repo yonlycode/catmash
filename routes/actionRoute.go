@@ -11,5 +11,8 @@ func SyncActionRoutes(a *echo.Echo) {
 	a.GET("/match", controllers.GetMatchEndPoint)
 	a.GET("/best", controllers.GetBestCatEndPoint)
 	a.POST("/new-cat", controllers.NewCatEndPoint)
+
 	a.POST("/vote-up/:id", controllers.VoteUpEndPoint)
+	a.GET("/vote-up/:id", controllers.VoteUpEndPoint)
+
 }
