@@ -3,8 +3,10 @@ import {Navbar} from 'reactstrap';
 
 export default function Footer() {
     return (
-        <Navbar color="faded" light fixed="bottom">
-            <p style={{textAlign:"center"}}> made with love b yonna</p>
+        <Navbar dark>
+            <div  className="text-center center">
+                <p> made with love b yonna</p>
+            </div>
         </Navbar>
     )
 }

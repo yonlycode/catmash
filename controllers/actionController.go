@@ -104,6 +104,14 @@ func GetMatchEndPoint(c echo.Context) error {
 	if i1 == i2 {
 		i2 = utils.GetRandomNumber(0, max)
 	}
+	//if the 2 index are same re run randomiser
+	if i1 == i2 {
+		i2 = utils.GetRandomNumber(0, max)
+	}
+	//if the 2 index are same re run randomiser
+	if i1 == i2 {
+		i2 = utils.GetRandomNumber(0, max)
+	}
 
 	//push cat item to @result array
 	var result []models.Cat

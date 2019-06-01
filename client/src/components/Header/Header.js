@@ -19,7 +19,7 @@ export default class Header extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="faded"expand="md" light>
+        <Navbar expand="md" light>
           <NavbarBrand href="/" className="center">
               <div>
                 <img src={Logo} style={{height:"150px"}} alt="wbesite logo"/>
