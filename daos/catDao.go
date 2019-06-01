@@ -17,6 +17,13 @@ func (m *DAO) FindAllCats() ([]models.Cat, error) {
 	return cats, err
 }
 
+/*FindBestCats return all cats sorted by votes */
+func (m *DAO) FindBestCats() ([]models.Cat, error) {
+	var cats []models.Cat
+	err := db.C(catCollection).Find(bson.M{}).Sort("-vote").All(&cats)
+	return cats, err
+}
+
 /*FindCatByID return selected cat  */
 func (m *DAO) FindCatByID(id string) (models.Cat, error) {
 	var cat models.Cat

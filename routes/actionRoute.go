@@ -8,7 +8,8 @@ import (
 
 //SyncActionRoutes bind actions routes to app
 func SyncActionRoutes(a *echo.Echo) {
-	a.POST("/new-cat", controllers.NewCat)
-	a.POST("/vote-up/:id", controllers.VoteUp)
-	a.GET("/match", controllers.GetMatch)
+	a.GET("/match", controllers.GetMatchEndPoint)
+	a.GET("/best", controllers.GetBestCatEndPoint)
+	a.POST("/new-cat", controllers.NewCatEndPoint)
+	a.POST("/vote-up/:id", controllers.VoteUpEndPoint)
 }

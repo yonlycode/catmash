@@ -12,8 +12,8 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
-/*NewCat is controller for add cat with image uploading  */
-func NewCat(c echo.Context) error {
+/*NewCatEndPoint is controller for add cat with image uploading  */
+func NewCatEndPoint(c echo.Context) error {
 
 	//Get Image
 	file, err := c.FormFile("file")
@@ -59,8 +59,8 @@ func NewCat(c echo.Context) error {
 	return c.JSON(http.StatusOK, m)
 }
 
-/*VoteUp increase vote score on selected cat  */
-func VoteUp(c echo.Context) error {
+/*VoteUpEndPoint increase vote score on selected cat  */
+func VoteUpEndPoint(c echo.Context) error {
 	//get cat
 	cat, err := Dao.FindCatByID(c.Param("id"))
 	if err != nil {
@@ -78,8 +78,8 @@ func VoteUp(c echo.Context) error {
 	return c.String(200, "Voted")
 }
 
-/*GetMatch return 2 cats for a match*/
-func GetMatch(c echo.Context) error {
+/*GetMatchEndPoint return 2 cats for a match*/
+func GetMatchEndPoint(c echo.Context) error {
 
 	//get cats array
 	cats, err := Dao.FindAllCats()
@@ -101,4 +101,14 @@ func GetMatch(c echo.Context) error {
 
 	//return 2 random cats
 	return c.JSON(200, result)
+}
+
+/*GetBestCatEndPoint return all cats sort by votes  */
+func GetBestCatEndPoint(c echo.Context) error {
+	//get best cats array
+	cats, err := Dao.FindBestCats()
+	if err != nil {
+		return c.String(500, err.Error())
+	}
+	return c.JSON(200, cats)
 }
