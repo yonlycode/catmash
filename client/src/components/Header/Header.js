@@ -1,6 +1,6 @@
 import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-import Logo from '../../assets/img/catmash.png'
+import Logo from '../../assets/img/catmash.png';
 export default class Header extends React.Component {
   constructor(props) {
     super(props);

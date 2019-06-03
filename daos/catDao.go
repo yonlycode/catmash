@@ -20,7 +20,7 @@ func (m *DAO) FindAllCats() ([]models.Cat, error) {
 /*FindBestCats return all cats sorted by votes */
 func (m *DAO) FindBestCats() ([]models.Cat, error) {
 	var cats []models.Cat
-	err := db.C(catCollection).Find(bson.M{}).Sort("-vote").All(&cats)
+	err := db.C(catCollection).Find(bson.M{}).Sort("-vote").Limit(10).All(&cats)
 	return cats, err
 }
 

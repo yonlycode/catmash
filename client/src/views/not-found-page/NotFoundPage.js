@@ -6,7 +6,7 @@ export default class NotFoundPage extends Component {
         return (
             <div>
                 <div className="row center">
-                    <img style={{textAlign:"center"}} src={NotFoundBanner} className="responsive-img" alt="not found page banner image" />
+                    <img style={{textAlign:"center"}} src={NotFoundBanner} className="responsive-img" alt="not found page banner" />
                 </div>
                 <br/><br/>
                 <div className="row center">

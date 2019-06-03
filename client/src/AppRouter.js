@@ -17,6 +17,7 @@ export default function AppRouter() {
     return (
         <ErrorBoundary>
             <Header/>
+            <br/>
             <Suspense maxDuration={300} fallback={<ActivityIndicator />}>
 
             <Router>
@@ -29,6 +30,7 @@ export default function AppRouter() {
             </Router>
 
             </Suspense>
+            <br/><br/><br/>
             <Footer/>
         </ErrorBoundary>
         

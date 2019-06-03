@@ -1,12 +1,9 @@
 import React from 'react';
-import {Navbar} from 'reactstrap';
 
 export default function Footer() {
     return (
-        <Navbar dark>
-            <div  className="text-center center">
-                <p> made with love b yonna</p>
-            </div>
-        </Navbar>
+        <div className="text-right">
+            <p className="navbar-brand " >Bootstraped with <i className="fas fa-heart red"></i> by <a href="https://www.yoannfort.ga/">YonnaR </a></p>
+        </div>
     )
 }

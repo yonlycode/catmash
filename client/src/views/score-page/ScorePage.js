@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Axios from 'axios';
-const CatTab = React.lazy(() =>import('../../components/Cat-List/CatTab'))
+import Banner from '../../assets/img/Banner-Scoring.jpg';
+const CatTab = React.lazy(() =>import('../../components/Cat-List/CatTab'));
+//const Banner = React.lazy(()=>import('../../assets/img/Banner-Scoring.jpg'));
 
 export default class ScorePage extends Component {
     constructor(props){
@@ -9,11 +11,11 @@ export default class ScorePage extends Component {
             data:[]
         }
     }
+
     componentDidMount(){
         this.getBest()
     }
 
-    
     getBest=()=>{
         Axios.get('/best')
         .catch(err=>alert(err))
@@ -21,11 +23,13 @@ export default class ScorePage extends Component {
             data : res.data,
         }))
     }
+    
     render() {
-        console.log(this.state)
         return (
             <div>
-                <h1 className="text-center">The Best Cats :</h1>
+                <div>
+                    <img className="img-responsive" src={Banner} alt="scoring banner" />
+                </div>
                 <br/>
                 <CatTab data={this.state.data} />
             </div>

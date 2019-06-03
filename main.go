@@ -12,6 +12,14 @@ import (
 	"golang.org/x/crypto/acme/autocert"
 )
 
+/*
+					HEY BRO' !!!!
+	 DON'T FORTGET YOU HAVE TO :
+		 -SECURE API
+		 -REMOVE IMAGE ON DELETE CAT COMMANDE
+		 -ACCEPT ONLY JPG AND PNG AS UPLOAD FILE
+
+*/
 var (
 	dbDao daos.DAO
 )

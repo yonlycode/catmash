@@ -1,8 +1,23 @@
-html {
-  margin: 0;
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+body {
+  margin: 0px;
+  padding: 0px;
+  font-size: 120%;
+  overflow-x: hidden;
+}
+#root{
+  background-color: rgb(254, 221, 98 , 0.2);
+  font-family: 'Indie Flower', cursive;
+
+}
+.container-fluid{
+  padding: 0px;
 }
 .w-100{
   width: 100%;
+}
+.column{
+  flex-direction: column;
 }
 .responsive-img{
   max-width: 100%;
@@ -10,13 +25,45 @@ html {
 .text-center{
   text-align: center;
 }
-.text-left{
+.text-right{
   text-align: right;
 }
 .text-justify{
   text-align: justify;
 }
-
+.margin-20{
+  margin-top : 10px;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 5px black;
+}
+.img-responsive{
+  width: 100%;
+  max-height: 650px;
+}
+.flex{
+  display: flex;
+}
+.space-between{
+  justify-content: space-between;
+}
+.rounded{
+  border-radius: 50%;
+  overflow: hidden;
+  height: 450px;
+}
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.space-around{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.red{
+  color:red
+}
 .center{
   display: flex;
   justify-content: center;
