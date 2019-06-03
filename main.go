@@ -40,6 +40,9 @@ func main() {
 	/* App instance */
 	e := echo.New()
 
+	/* HTTPS redirection */
+	e.Pre(middleware.HTTPSWWWRedirect())
+
 	/* loger */
 	e.Use(middleware.LoggerWithConfig(middleware.DefaultLoggerConfig))
 	e.Use(middleware.Recover())
