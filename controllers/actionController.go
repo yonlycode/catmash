@@ -26,6 +26,10 @@ func NewCatEndPoint(c echo.Context) error {
 	}
 	defer src.Close()
 
+	if !utils.IsAnImage(file.Filename) {
+		return c.String(400, "Bad extension")
+	}
+
 	// Destination
 	dst, err := os.Create("upload/img/" + file.Filename)
 	if err != nil {
@@ -49,6 +53,7 @@ func NewCatEndPoint(c echo.Context) error {
 	//generate id/date
 	m.ID = bson.NewObjectId()
 	m.Created = time.Now()
+	m.FileName = file.Filename
 	m.Img = "/img/" + file.Filename
 
 	//insert to model to database

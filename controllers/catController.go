@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"catmash/models"
-	"fmt"
+	"catmash/utils"
 	"time"
 
 	"github.com/labstack/echo"
@@ -74,12 +74,25 @@ func UpdateCatEndPoint(c echo.Context) error {
 
 // DeleteCatEndPoint delete selected cat user
 func DeleteCatEndPoint(c echo.Context) error {
-	//delete cat
-	err := Dao.DeleteCat(c.Param("id"))
-	fmt.Println(c.Param("id"))
+
+	//Get cat
+	cat, err := Dao.FindCatByID(c.Param("id"))
 	if err != nil {
 		return c.String(500, err.Error())
 	}
+
+	//delete cat image from disk
+	deleted := utils.DeleteImage(cat.FileName)
+	if !deleted {
+		return c.String(500, "can't delete associate image")
+	}
+
+	//delete cat
+	err1 := Dao.DeleteCat(c.Param("id"))
+	if err1 != nil {
+		return c.String(500, err1.Error())
+	}
+
 	//return succes message
 	return c.JSON(200, "deleted successfully")
 }

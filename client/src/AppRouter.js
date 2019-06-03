@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { Switch, HashRouter as Router, Route, Redirect } from 'react-router-dom';
+import Analytics from 'react-router-ga';
 import ActivityIndicator from './components/Activity-Indactor/ActivityIndicator';
 import ErrorBoundary from './components/Error-Boundary/ErrorBoundary';
 import Header from './components/Header/Header';
@@ -21,12 +22,14 @@ export default function AppRouter() {
             <Suspense maxDuration={300} fallback={<ActivityIndicator />}>
 
             <Router>
+                <Analytics id="UA-141223150-1" debug={false}>
                 <Switch>
                     <Route exact path="/" component={HomePage} />
                     <Route path="/score" component={ScorePage}/>
                     <Route path="/not-found" component={NotFoundPage}/>
                     <Redirect to="/not-found" />
                 </Switch>
+                </Analytics>
             </Router>
 
             </Suspense>
